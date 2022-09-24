@@ -1,0 +1,17 @@
+Criação do projeto
+    curl -s https://laravel.build/espti_emails_verificacao | bash
+
+Configuração das portas, caso alguma já esteja sendo usada:
+    entre no projeto, insira no .env, na parte do topo a porta 8080:
+        APP_NAME=Laravel
+        APP_ENV=local
+        APP_KEY=blablablablablablablablablablablabla
+        APP_DEBUG=true
+        APP_URL=http://localhost
+        APP_PORT=8080
+
+    na parte mysql do .env, insira:
+        FORWARD_DB_PORT=3307
+
+Entrar no mailhog:
+    localhost:8025
