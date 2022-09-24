@@ -15,3 +15,10 @@ Configuração das portas, caso alguma já esteja sendo usada:
 
 Entrar no mailhog:
     localhost:8025
+
+========
+
+Aula 1 - emails failover
+    a configuração do failover fica em config/mail.php
+    foi mudado no .env o MAIL_MAILER de smtp pra failover
+    no failover ele tenta processar via smtp. se não der certo, vai por log
