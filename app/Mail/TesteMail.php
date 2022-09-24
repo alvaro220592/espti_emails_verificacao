@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -16,7 +17,7 @@ class TesteMail extends Mailable
      *
      * @return void
      */
-    public function __construct(private array $user)
+    public function __construct(private User $user)
     {
         //
     }
@@ -28,6 +29,10 @@ class TesteMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.testeMail')->subject(trans('messages.emails.testeMail.subjects.subject01'));
+        return $this->view('emails.testeMail')
+        ->subject(trans('messages.emails.testeMail.subjects.subject01'))
+        ->with([
+            'user' => $this->user
+        ]);
     }
 }

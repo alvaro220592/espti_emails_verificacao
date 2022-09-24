@@ -34,3 +34,11 @@ enviar emails
     em web.php foi feita uma rota com callback para chamar esse email
 
     foi criado um arquivo dentro de  lang/en/ chamado messages.php
+
+renderizar emails
+    para poder ver o email antes:
+        return (new TesteMail)->render();
+
+passar dados para a view do email  
+    foi criado um usuário
+        ./vendor/bin/sail php artisan migrate
