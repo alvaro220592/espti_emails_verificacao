@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\TesteMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('testeMail', function() {
+    Mail::to('alvaro220592@gmail.com')->send(new TesteMail([]));
 });

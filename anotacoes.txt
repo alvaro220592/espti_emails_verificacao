@@ -18,7 +18,19 @@ Entrar no mailhog:
 
 ========
 
-Aula 1 - emails failover
+emails failover
     a configuração do failover fica em config/mail.php
     foi mudado no .env o MAIL_MAILER de smtp pra failover
     no failover ele tenta processar via smtp. se não der certo, vai por log
+
+enviar emails
+    no terminal: 
+        ./vendor/bin/sail php artisan make:mail TesteMail
+    É possível colocar no construtor no TesteMail o tipo de dado que terá que receber ao chamar a classe. ex:
+        public function __construct(private array $user){}
+    
+    Na função build é possível colocar a view em que o email será renderizado, ex: return $this->view('emails.testeMail');
+
+    em web.php foi feita uma rota com callback para chamar esse email
+
+    foi criado um arquivo dentro de  lang/en/ chamado messages.php
