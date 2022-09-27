@@ -33,6 +33,7 @@ class TesteMail extends Mailable
         ->subject(trans('messages.emails.testeMail.subjects.subject01'))
         ->with([
             'user' => $this->user
-        ]);
+        ])
+        ->attach(storage_path('app/public/teste.txt'));
     }
 }
