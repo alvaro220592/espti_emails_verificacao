@@ -42,3 +42,22 @@ renderizar emails
 passar dados para a view do email  
     foi criado um usuário
         ./vendor/bin/sail php artisan migrate
+
+anexar arquivos no email
+    basta inserir "->attach(storage_path('app/public/teste.txt'));" na função build do email
+    esse endereço de arquivo é pq eu fiz um .txt lá no storage/app/public
+
+embed de imagem no email
+    foi colocada uma imagem lá no mesmo endereço q o arquivo acima
+    basta colocar na função build do email, dentro do envio de variáveis, o endereço da imagem:
+    ->with([
+            'image' => storage_path('app/public/4exzTLFFiHf2.gif')
+        ])
+    colocar na view do email um img chamando a variável:
+    <img src="{{ $message->embed($image) }}" alt="">
+
+    Para enviar uma imagem em base64 por exemplo, faz assim(nao funcionou):
+    <img src="{{ $message->embedData($image, 'nomeDoArquivo.png') }}" alt="">
+
+
+    

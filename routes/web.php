@@ -23,7 +23,7 @@ Route::get('/', function () {
 Route::get('testeMail', function() {
     $user = User::factory()->create();
 
-    // return (new TesteMail($user))->render();
+    return (new TesteMail($user))->render();
     
-    Mail::to('alvaro220592@gmail.com')->send(new TesteMail($user));
+    // Mail::to('alvaro220592@gmail.com')->send(new TesteMail($user));
 });
