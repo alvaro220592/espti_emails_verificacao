@@ -1,6 +1,8 @@
 <?php
 
 use App\Mail\TesteMail;
+use App\Mail\WelcomeMail;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +22,16 @@ Route::get('/', function () {
 });
 
 Route::get('testeMail', function() {
-    Mail::to('alvaro220592@gmail.com')->send(new TesteMail([]));
+    $user = User::factory()->create();
+
+    // return (new TesteMail($user))->render();
+    
+    // Mail::to('alvaro220592@gmail.com')->send(new TesteMail($user));
+});
+
+Route::get('testeMarkdown', function() {
+
+    return (new WelcomeMail())->render();
+    
+    // Mail::to('alvaro220592@gmail.com')->send(new WelcomeMail);
 });
