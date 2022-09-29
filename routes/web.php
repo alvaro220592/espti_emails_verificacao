@@ -31,7 +31,7 @@ Route::get('testeMail', function() {
 
 Route::get('testeMarkdown', function() {
 
-    // return (new WelcomeMail())->render();
+    return (new WelcomeMail())->render();
     
-    Mail::to('alvaro220592@gmail.com')->send(new WelcomeMail);
+    // Mail::to('alvaro220592@gmail.com')->send(new WelcomeMail);
 });

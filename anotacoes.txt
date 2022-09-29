@@ -68,4 +68,13 @@ markdown
         Esse arquivo da view markdown gerado pode ser editado como o .md
 
         criei uma rota nova só pra ele pra nao confundir
+
+personalização do markdown
+    o markdon fica num apasta escondida. Aí é preciso "publicar" essa pasta pras views e poder mexer:
+    ./vendor/bin/sail php artisan vendor:publish --tag=laravel-mail
+
+    em config/mail.php é possível escolher o tema do email, então basta duplicar o resources/views/vendor/mail/html/themes/default.css e indicá-lo no mail.php com um novo nome
+
+    trocar a cor do botao: 'color' => 'nomeCorDoCssPersonalizado'. 
+
     
