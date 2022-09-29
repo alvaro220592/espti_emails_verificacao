@@ -1,9 +1,5 @@
 <?php
 
-use App\Mail\TesteMail;
-use App\Mail\WelcomeMail;
-use App\Models\User;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,17 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('testeMail', function() {
-    $user = User::factory()->create();
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-    // return (new TesteMail($user))->render();
-    
-    // Mail::to('alvaro220592@gmail.com')->send(new TesteMail($user));
-});
-
-Route::get('testeMarkdown', function() {
-
-    // return (new WelcomeMail())->render();
-    
-    Mail::to('alvaro220592@gmail.com')->send(new WelcomeMail);
-});
+require __DIR__.'/auth.php';

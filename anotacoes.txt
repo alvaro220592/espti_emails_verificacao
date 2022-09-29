@@ -84,4 +84,10 @@ emails com filas
 
     Qualquer alteração, reinicie o php artisan queue:work
 
+autenticacao laravel 9
+    ./vendor/bin/sail composer require laravel/breeze --dev
+    php artisan breeze:install
+    npm install
+    npm run build
+
     
