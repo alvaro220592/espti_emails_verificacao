@@ -59,5 +59,13 @@ embed de imagem no email
     Para enviar uma imagem em base64 por exemplo, faz assim(nao funcionou):
     <img src="{{ $message->embedData($image, 'nomeDoArquivo.png') }}" alt="">
 
+markdown
+    para isso foi criada uma classe nova de email:
+        ./vendor/bin/sail php artisan make:mail WelcomeMail --markdown=emails.users.welcome
 
+        Aí já cria com a view junto
+        Agora na classe de email, não se usa mais a propriedade 'view' e sim a 'markdown'
+        Esse arquivo da view markdown gerado pode ser editado como o .md
+
+        criei uma rota nova só pra ele pra nao confundir
     
