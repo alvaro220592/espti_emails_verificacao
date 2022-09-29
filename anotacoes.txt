@@ -77,4 +77,11 @@ personalização do markdown
 
     trocar a cor do botao: 'color' => 'nomeCorDoCssPersonalizado'. 
 
+emails com filas
+    ir ao .env e alterar o queue_connection pra redis
+    adicionar à classe de email: implements ShouldQueue
+    ./vendor/bin/sail php artisan queue:work
+
+    Qualquer alteração, reinicie o php artisan queue:work
+
     
