@@ -1,3 +1,6 @@
-<h1>TesteMail</h1>
+<h1>Olá, {{ $user->name }}</h1>
 
-<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa facere dolores non magni hic earum error doloribus quaerat id animi impedit repellat aliquam ex corrupti vel in, consectetur tenetur sint!</p>
+Email: {{ $user->email }}
+
+{{-- <img src="{{ $message->embed($image) }}" alt=""> --}}
+<img src="{{ $message->embedData($imageBase64, 'picachu.png') }}" alt="">
