@@ -90,4 +90,10 @@ autenticacao laravel 9
     npm install
     npm run build
 
+ATIVAR CONTA USUÁRIO NOVO NO LARAVEL
+    antes de registrar usuário, entre na model User,
+    descomente o use MustVerifyEmail e na declaração da classe, coloque o implements MustVerifyEmail
+    colocar o 'verified' como mais um middleware da rota de /dashboard
+    criar conta pra testar
+
     
