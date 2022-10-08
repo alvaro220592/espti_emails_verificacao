@@ -96,4 +96,20 @@ ATIVAR CONTA USUÁRIO NOVO NO LARAVEL
     colocar o 'verified' como mais um middleware da rota de /dashboard
     criar conta pra testar
 
-    
+traduzir aplicação
+    ./vendor/bin/sail composer require lucascudo/laravel-pt-br-localization --dev
+    ./vendor/bin/sail php artisan vendor:publish --tag=laravel-pt-br-localization
+    ai já instala a pasta pt-BR na lang
+    em config/app.php, mude o locale para o nome da pasta 'pt-BR'
+    caso tenha messages no 'en', copia o arquivo pra pt-BR e traduz
+    as frases não traduzidas geralmente estão nas views, então têm que ser mudadas na mão
+
+personalização de mensagem de verificação de conta
+    Em AuthServiceProvider, na função boot, cole:
+
+    VerifyEmail::toMailUsing(function ($notifiable, $url) {
+        return (new MailMessage)
+            ->subject('emails.testeMail.subjects.verificacao') // Este é só um exemplo
+            ->line('Clique para verificar')
+            ->action('Verificar', $url)
+    });
